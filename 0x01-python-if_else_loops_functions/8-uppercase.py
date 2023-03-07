@@ -6,10 +6,10 @@ def uppercase(str):
                 use = '\n'
             else:
                 use = ''
-            print(f'{chr(ord(str[i]) - 32)}', end=use)
+            print('{}'.format(chr(ord(str[i]) - 32)), end=use)
         else:
             if i == len(str) - 1:
                 use = '\n'
             else:
                 use = ''
-            print(str[i], end=use)
+            print('{}'.format(str[i]), end=use)
