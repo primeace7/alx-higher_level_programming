@@ -16,4 +16,3 @@ def uppercase(str):
                 use = ''
             print('{}'.format(i), end=use)
 
-uppercase('')
