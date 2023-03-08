@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 def uppercase(str):
+    copy = []
     if str == '':
-        str[0] = '\n'
+        print()
+        return
     for i in str:
         if (ord(i) >= 97 and ord(i) <= 122):
-            if i == str[-1]:
-                use = '\n'
-            else:
-                use = ''
-            print('{}'.format(chr(ord(i) - 32)), end=use)
+            copy.append(chr(ord(i) - 32))
         else:
-            if i == str[-1] and str[0] != '\n':
-                use = '\n'
-            else:
-                use = ''
-            print('{}'.format(i), end=use)
+            copy.append(i)
+    for i in range(len(copy)):
+        if i == len(copy) - 1:
+            use = '\n'
+        else:
+            use = ''
+        print('{}'.format(copy[i]), end=use)
