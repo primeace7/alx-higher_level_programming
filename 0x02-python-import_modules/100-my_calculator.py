@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
     print(f'{num1} {argv[2]} {num2} = ', end='', sep='')
     if argv[2] == ops[0]:
-        print(f'{add(num1, num2)')
+        print(f'{add(num1, num2)}')
     elif argv[2] == ops[1]:
         print(f'{sub(num1, num2)}')
     elif argv[2] == ops[2]:
