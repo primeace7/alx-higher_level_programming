@@ -28,12 +28,14 @@ int check_cycle(listint_t *list)
 		}
 
 		current_node = head;
+		counter = 0;
 
-		for (counter = 0; counter < i; counter++)
+		while (counter < i)
 		{
 			if (current_node == list)
 				return (1);
 			current_node = current_node->next;
+			counter++;
 		}
 	}
 }
