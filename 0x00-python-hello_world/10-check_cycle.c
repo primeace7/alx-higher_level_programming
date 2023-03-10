@@ -19,13 +19,13 @@ int check_cycle(listint_t *list)
 	{
 		if (list->next == NULL)
 			return (0);
-		else if (list->next == list)
+		else if (list->next == list || list->next == head)
 			return (1);
 		list = list->next;
 		i++;
 
-		current = head;
-		count = 0;
+		current = head->next;
+		count = 1;
 
 		for (; count < i; current = current->next, count++)
 			if (current == list)
