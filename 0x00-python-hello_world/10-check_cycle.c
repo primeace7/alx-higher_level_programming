@@ -25,7 +25,7 @@ int check_cycle(listint_t *list)
 		i++;
 
 		curr = head;
-		for (c = 0; curr == list && c < i; c++, curr = curr->next)
+		for (c = 0; c < i && curr == list; c++, curr = curr->next)
 			return (1);
 	}
 }
