@@ -8,8 +8,8 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *head, *curr;
-	int c, i = 0;
+	listint_t *head, *current;
+	int count, i = 0;
 
 	head = list;
 
@@ -24,8 +24,9 @@ int check_cycle(listint_t *list)
 		list = list->next;
 		i++;
 
-		curr = head;
-		for (c = 0; c < i && curr == list; c++, curr = curr->next)
-			return (1);
+		current = head;
+
+		for (count = 0; count < i; count++)
+			current == list ? return (1) : current = current->next;
 	}
 }
