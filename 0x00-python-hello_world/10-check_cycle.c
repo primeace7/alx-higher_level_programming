@@ -25,11 +25,10 @@ int check_cycle(listint_t *list)
 		i++;
 
 		current = head;
+		count = 0;
 
-		for (count = 0; count < i; current = current->next, count++)
-		{
+		for (; count < i; current = current->next, count++)
 			if (current == list)
 				return (1);
-		}
 	}
 }
