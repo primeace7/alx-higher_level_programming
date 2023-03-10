@@ -17,18 +17,12 @@ int check_cycle(listint_t *list)
 		return (0);
 	while (1)
 	{
-		switch (list->next)
-		{
-		case NULL:
-			return (0);
-		case list:
-			return (1);
-		case head:
-			return (1);
-		default:
-			list = list->next;
-			i++;
-		}
+		if (list->next == NULL)
+                        return (0);
+                else if (list->next == list || list->next == head)
+                        return (1);
+                list = list->next;
+                i++;
 
 		current = head->next;
 		count = 1;
