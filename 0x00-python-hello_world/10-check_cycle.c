@@ -26,7 +26,10 @@ int check_cycle(listint_t *list)
 
 		current = head;
 
-		for (count = 0; count < i; count++)
-			current == list ? return (1) : current = current->next;
+		for (count = 0; count < i; current = current->next, count++)
+		{
+			if (current == list)
+				return (1);
+		}
 	}
 }
