@@ -5,10 +5,10 @@
  * @head: pointer to the first node in the list
  * @list: pointer to the current node in the list
  * @i: the index in the list where @list currently points to
- * Return: nothing
+ * Return: 1 if the list has a cycle, 0 otherwise
  */
 
-void check_list(listint_t *head, listint_t *list, int i)
+int check_list(listint_t *head, listint_t *list, int i)
 {
 	listint_t *current_node;
 	int counter;
@@ -18,9 +18,10 @@ void check_list(listint_t *head, listint_t *list, int i)
 	for (counter = 0; counter < i; counter++)
 	{
 		if (current_node == list)
-			exit(1);
+			return (1);
 		current_node = current_node->next;
 	}
+	return (0);
 }
 
 /**
@@ -47,6 +48,7 @@ int check_cycle(listint_t *list)
 		list = list->next;
 		i++;
 
-		check_list(head, list, i);
+		if (check_list(head, list, i))
+			return (1);
 	}
 }
