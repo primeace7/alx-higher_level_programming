@@ -3,23 +3,37 @@
 /**
  * check_cycle - check if a linked list is circular or not
  * @list: pointer to the head node of the list
- * Return: 1, if the list is circular, or 0 otherwise
+ * Return: 1, if the list has a cycle, or 0 otherwise
  */
 
 int check_cycle(listint_t *list)
 {
-	listint_t *first_node;
+	listint_t *current_node, *head;
+	int counter, i = 0;
 
-	first_node = list;
+	head = list;
 
-	if (first_node == NULL)
+	if (list == NULL)
 		return (0);
 	while (1)
 	{
-		if (list->next == first_node)
-			return (1);
-		else if (list->next == NULL)
+		if (list->next == NULL)
 			return (0);
-		list = list->next;
+		else if (list->next == list)
+			return (1);
+		else
+		{
+			list = list->next;
+			i++;
+		}
+
+		current_node = head;
+
+		for (counter = 0; counter < i; counter++)
+		{
+			if (current_node == list)
+				return (1);
+			current_node = current_node->next;
+		}
 	}
 }
