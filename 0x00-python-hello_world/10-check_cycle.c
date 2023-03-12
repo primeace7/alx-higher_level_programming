@@ -8,8 +8,7 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *head, *current;
-	int count, i = 0;
+	listint_t *head, *iter;
 
 	head = list;
 
@@ -18,17 +17,15 @@ int check_cycle(listint_t *list)
 	while (1)
 	{
 		if (list->next == NULL)
-                        return (0);
-                else if (list->next == list || list->next == head)
-                        return (1);
-                list = list->next;
-                i++;
+			return (0);
+		else if (list->next == list || list->next == head)
+			return (1);
 
-		current = head->next;
-		count = 1;
-
-		for (; count < i; current = current->next, count++)
-			if (current == list)
-				return (1);
+		iter = head->next;
+		for (; iter != list && list->next != iter; iter = iter->next)
+			;
+		if (iter->next == list)
+			return (1);
+		list = list->next;
 	}
 }
