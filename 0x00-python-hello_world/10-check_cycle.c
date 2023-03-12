@@ -8,9 +8,6 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *head, *iter;
-
-	head = list;
 
 	if (list == NULL)
 		return (0);
@@ -20,5 +17,6 @@ int check_cycle(listint_t *list)
 			return (1);
 		else if (list->next == NULL)
 			return (0);
+		list = list->next;
 	}
 }
