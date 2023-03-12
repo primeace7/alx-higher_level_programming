@@ -18,13 +18,13 @@ int check_cycle(listint_t *list)
 	{
 		if (list->next == NULL)
 			return (0);
-		else if (list->next == list || list->next == head)
+		else if (list->next == list)
 			return (1);
 
-		iter = head->next;
+		iter = head;
 		for (; iter != list && list->next != iter; iter = iter->next)
 			;
-		if (iter->next == list)
+		if (list->next == iter)
 			return (1);
 		list = list->next;
 	}
