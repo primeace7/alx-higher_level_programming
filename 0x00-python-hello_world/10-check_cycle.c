@@ -22,10 +22,12 @@ int check_cycle(listint_t *list)
 			return (1);
 
 		iter = head;
-		for (; iter != list && list->next != iter; iter = iter->next)
-			;
-		if (list->next == iter)
-			return (1);
+		while (iter != list)
+		{
+			if (list->next == iter)
+				return (1);
+			iter = iter->next;
+		}
 		list = list->next;
 	}
 }
