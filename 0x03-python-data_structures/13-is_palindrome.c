@@ -10,7 +10,7 @@
 int list_index(listint_t *list, int n)
 {
 	int i;
-	if (n = 0)
+	if (n == 0)
 		return (list->n);
 	for (i = 0; i < n; i++)
 		list = list->next;
@@ -37,7 +37,7 @@ int is_palindrome(listint_t **head)
 
 	for (i = 0; i < midpoint; i++)
 	{
-		if (list != list_index(*head, list_len - i -1))
+		if (list->n != list_index(*head, list_len - i -1))
 			return (0);
 		list = list->next;
 	}
