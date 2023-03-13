@@ -12,6 +12,11 @@ int is_palindrome(listint_t **head)
 	int i, list_len, midpoint;
 
 	list = *head;
+
+	if (list == NULL)
+		return (1);
+	if (list->next == NULL)
+		return (0);
 	for (list_len = 1; list->next != NULL; list_len++)
 		list = list->next;
 
