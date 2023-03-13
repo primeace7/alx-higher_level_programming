@@ -6,5 +6,5 @@ def print_matrix_integer(matrix=[[]]):
                 use = ''
             else:
                 use = ' '
-            print('{}'.format(number), end=use)
+            print('{:d}'.format(number), end=use)
         print()
