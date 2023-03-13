@@ -20,7 +20,7 @@ int is_palindrome(listint_t **head)
 	for (list_len = 1; list->next != NULL; list_len++)
 		list = list->next;
 
-	midpoint = list_len / 2;
+	midpoint = (int)(list_len / 2);
 	--list_len;
 	list = *head;
 
