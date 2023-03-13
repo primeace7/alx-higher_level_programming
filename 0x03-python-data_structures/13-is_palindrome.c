@@ -21,7 +21,7 @@ int is_palindrome(listint_t **head)
 
 	for (i = 0; i < midpoint; i++)
 	{
-		if ((list + i)->n != (list + list_len - i)->n)
+		if ((list - i)->n != (list - list_len + i)->n)
 			return (0);
 	}
 	return (1);
