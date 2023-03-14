@@ -9,7 +9,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *list;
-	int i, list_len, midpoint;
+	int i, list_len, midpoint, counter, first, last;
 
 	list = *head;
 
@@ -19,16 +19,21 @@ int is_palindrome(listint_t **head)
 		list = list->next;
 
 	midpoint = list_len / 2;
-	--list_len;
+	list_len -= 1;
 	list = *head;
 
 	for (i = 0; i < midpoint; i++)
 	{
-		if ((list + i)->n != (list + list_len - i)->n)
+		for (list = *head, counter = 0; counter < i; counter++)
+			list = list->next;
+		first = list->n;
+
+		for (list = *head, counter = 0; counter < list_len - i; counter++)
+			list = list->next;
+		last = list->n;
+
+		if (first != last)
 			return (0);
 	}
-	if (midpoint - i == 1)
-		return (1);
-	else
-		return (0);
+	return (1);
 }
