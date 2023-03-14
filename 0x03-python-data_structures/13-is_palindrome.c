@@ -14,7 +14,7 @@ int is_palindrome(listint_t **head)
 	list = *head;
 
 	if (list == NULL || list->next == NULL)
-		return (0);
+		return (1);
 	for (list_len = 1; list->next != NULL; list_len++)
 		list = list->next;
 
@@ -25,7 +25,10 @@ int is_palindrome(listint_t **head)
 	for (i = 0; i < midpoint; i++)
 	{
 		if ((list + i)->n != (list + list_len - i)->n)
-			return (1);
+			return (0);
 	}
-	return (0);
+	if (midpoint - i == 1)
+		return (1);
+	else
+		return (0);
 }
