@@ -6,4 +6,5 @@ raise_exception - raise a type exception
 '''
 
 def raise_exception():
-    
+    raise TypeError
+
