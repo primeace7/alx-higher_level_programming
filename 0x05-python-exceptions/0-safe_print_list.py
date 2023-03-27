@@ -14,14 +14,14 @@ Return: The number of elements printed
 
 def safe_print_list(my_list=[], x=0):
     j = 0
-    try:
-        for i in range(x):
+    for i in range(x):
+        try:
             if j < x:
                 print(my_list[j], end='')
                 j += 1
-        if j != 0:
+        except IndexError:
             print()
-        return j
-    except IndexError:
+            return j
+    if j != 0:
         print()
-        return j
+    return j
