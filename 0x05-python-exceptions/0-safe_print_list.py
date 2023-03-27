@@ -15,7 +15,7 @@ Return: The number of elements printed
 def safe_print_list(my_list=[], x=0):
     j = 0
     try:
-        for i in my_list:
+        for i in range(x):
             if j < x:
                 print(my_list[j], end='')
                 j += 1
@@ -23,4 +23,7 @@ def safe_print_list(my_list=[], x=0):
             print()
         return j
     except Exception:
-        raise
+        return j
+
+
+safe_print_list(None, -9)

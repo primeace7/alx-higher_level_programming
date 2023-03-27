@@ -16,7 +16,7 @@ Return: the quotient, or None if there was an error
 def safe_print_division(a, b):
     try:
         result = a / b
-    except Except:
+    except Exception:
         result = None
         raise
     finally:
