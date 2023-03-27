@@ -24,4 +24,7 @@ def safe_print_list(my_list=[], x=0):
             return j
     if j != 0:
         print()
-    return j
+    if j == 0:
+        return None
+    else:
+        return j
