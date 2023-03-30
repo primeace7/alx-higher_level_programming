@@ -21,56 +21,63 @@ class Node:
         next_node(list, optional): pointer to the next node, i.e the
         name of next node
         '''
-        self.data = data
-        self.next_node = next_node
+        if type(data) == int:
+            self.__data = data
+        else:
+            raise TypeError('data must be an integer')
 
-        @property
-        def data(self):
-            '''
-            set and retrieve the content of a node
+        if next_node is None or type(next_node) == type(Node):
+            self.__next_node = next_node
+        else:
+            raise TypeError('next_node must be a Node object')
 
-            Args:
-            value(int, for setter alone): the data to assign to node
+    @property
+    def data(self):
+        '''
+        set and retrieve the content of a node
 
-            Returns:
-            int(for getter alone): the node's data to be returned
+        Args:
+        value(int, for setter alone): the data to assign to node
 
-            Raises:
-            TypeError(for setter alone): when data to insert to node isn't int
-            '''
-            return self.__data
+        Returns:
+        int(for getter alone): the node's data to be returned
 
-        @data.setter
-        def data(self, value):
-            if type(value) != int:
-                raise TypeError('data must be an integer')
-            else:
-                self.__data = value
+        Raises:
+        TypeError(for setter alone): when data to insert to node isn't int
+        '''
+        return self.__data
 
-        @property
-        def next_node(self):
-            '''
-            set and retrieve the next node pointer/element of a node
+    @data.setter
+    def data(self, value):
+        if type(value) == int:
+            self.__data = value
+        else:
+            raise TypeError('data must be an integer')
 
-            Args:
-            value(list, for setter alone): the next node or its
-            name(a pointer to it)
+    @property
+    def next_node(self):
+        '''
+        set and retrieve the next node pointer/element of a node
 
-            Returns:
-            list(for getter alone): the node to be returned
+        Args:
+        value(list, for setter alone): the next node or its
+        name(a pointer to it)
 
-            Raises:
-            TypeError(for setter alone): when the next node isn't a node
-            object, or None
-            '''
-            return self.__next_node
+        Returns:
+        list(for getter alone): the node to be returned
 
-        @next_node.setter
-        def next_node(self, value):
-            if type(value) is not None or type(value) != list:
-                raise TypeError('next_node must be a Node object')
-            else:
-                self.__next_node = value
+        Raises:
+        TypeError(for setter alone): when the next node isn't a node
+        object, or None
+        '''
+        return self.__next_node
+
+    @next_node.setter
+    def next_node(self, value):
+        if type(value) is not None or type(value) != type(Node):
+            raise TypeError('next_node must be a Node object')
+        else:
+            self.__next_node = value
 
 
 class SinglyLinkedList:
@@ -124,3 +131,23 @@ class SinglyLinkedList:
                 result += '\n'
             hold = hold.next_node
         return result
+
+n1 = Node(3)
+print(n1.data)
+
+n2 = Node(-5)
+print(n2.data)
+
+n3 = Node(4)
+n3.nextnode = n2
+print(n3.nextnode.data)
+
+try:
+    n4 = Node("5")
+except Exception as e:
+    print(e)
+
+try:
+    n2.next_node = "Node"
+except Exception as e:
+    print(e)

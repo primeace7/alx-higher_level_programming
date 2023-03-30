@@ -94,19 +94,21 @@ class Square:
                     print(' ', end='')
                 for j in range(self.__size):
                     print('#', end='')
-                print()
+                if i != self.__size - 1:
+                    print()
 
     def __str__(self):
         result = ''
-        if self.__size == 0:
-            result += '\n'
-        else:
+        if self.__size != 0:
             for k in range(self.__position[1]):
-                result +=  '\n'
+                result += '\n'
             for i in range(self.__size):
                 for i in range(self.__position[0]):
                     result += ' '
                 for j in range(self.__size):
                     result += '#'
-                result += '\n'
+                if i != self.__size - 1:
+                    result += '\n'
+        else:
+            result += '\n'
         return result
