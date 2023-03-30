@@ -103,7 +103,7 @@ class Square:
             for k in range(self.__position[1]):
                 result += '\n'
             for i in range(self.__size):
-                for i in range(self.__position[0]):
+                for t in range(self.__position[0]):
                     result += ' '
                 for j in range(self.__size):
                     result += '#'
@@ -112,3 +112,4 @@ class Square:
         else:
             result += '\n'
         return result
+
