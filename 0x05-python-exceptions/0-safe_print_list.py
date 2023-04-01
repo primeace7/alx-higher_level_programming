@@ -24,4 +24,4 @@ def safe_print_list(my_list=[], x=0):
             return i
     if i != 0:
         print()
-    return i + 1
+    return i
