@@ -13,6 +13,9 @@ Return: The number of elements printed
 
 
 def safe_print_list(my_list=[], x=0):
+    if x < 0:
+        raise ValueError('x must be >= 0')
+    i = 0
     for i in range(x):
         try:
             print(my_list[i], end='')
