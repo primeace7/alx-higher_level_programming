@@ -17,10 +17,12 @@ class Rectangle():
     width(int): rectangle width
     height(int): rectangle height
     '''
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -107,3 +109,7 @@ class Rectangle():
     def __repr__(self):
         return 'Rectangle(' + str(self.__width) + ', ' +\
             str(self.__height) + ')'
+
+    def __del__(self):
+        print('Bye rectangle...')
+        type(self).number_of_instances -= 1
