@@ -16,6 +16,8 @@ class Rectangle():
     Attributes:
     width(int): rectangle width
     height(int): rectangle height
+    number_of_instances(int): number of existing instances
+    print_symbol: the symbol to print rectangle with - can be any type
     '''
     number_of_instances = 0
     print_symbol = '#'
@@ -102,7 +104,7 @@ class Rectangle():
         draw_rect = ''
         for i in range(self.__height):
             for j in range(self.__width):
-                draw_rect += str(type(self).print_symbol)
+                draw_rect += str(self.print_symbol)
             if i != self.__height - 1:
                 draw_rect += '\n'
         return draw_rect
