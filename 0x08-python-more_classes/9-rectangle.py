@@ -16,6 +16,8 @@ class Rectangle():
     Attributes:
     width(int): rectangle width
     height(int): rectangle height
+    number_of_instances(int): number of existing instances
+    print_symbol: the symbol to print rectangle with - can be any type
     '''
     number_of_instances = 0
     print_symbol = '#'
@@ -24,6 +26,36 @@ class Rectangle():
         self.width = width
         self.height = height
         type(self).number_of_instances += 1
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        '''
+        compare two rectangles based on area
+
+        Args:
+        rect_1(:obj:Rectangle): the first rectangle to compare
+        rect_2(:obj:Rectangle): the second rectangle to compare
+
+        Returns:
+        rect_1: if rect_1 area is bigger than or equal to rect_2
+        rect_2: if rect_2 area is bigger than rect_1
+
+        Raises:
+        TypeError: if rect_1 or rect_2 aren't Rectangle objects
+        '''
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError('rect_1 must be an instance of Rectangle')
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError('rect_2 must be an instance of Recttangle')
+
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        else:
+            return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        return cls(size, size)
 
     @property
     def width(self):
@@ -102,7 +134,7 @@ class Rectangle():
         draw_rect = ''
         for i in range(self.__height):
             for j in range(self.__width):
-                draw_rect += type(self).print_symbol
+                draw_rect += str(self.print_symbol)
             if i != self.__height - 1:
                 draw_rect += '\n'
         return draw_rect
@@ -114,11 +146,3 @@ class Rectangle():
     def __del__(self):
         print('Bye rectangle...')
         type(self).number_of_instances -= 1
-
-if __name__ == '__main__':
-    my_rectangle_2 = Rectangle(2, 1)
-    print(my_rectangle_2)
-    print("--")
-    Rectangle.print_symbol = "C"
-    print(my_rectangle_2)
-    print("--")
