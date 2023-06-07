@@ -104,6 +104,6 @@ class Rectangle():
                 draw_rect += '\n'
         return draw_rect
 
-if __name__ == '__main__':
-    myrect = Rectangle(6,4)
-    print(myrect)
+    def __repr__(self):
+        return 'Rectangle(' + str(self.__width) + ', ' +\
+            str(self.__height) + ')'
