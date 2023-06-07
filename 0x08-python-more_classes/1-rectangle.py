@@ -18,7 +18,7 @@ class Rectangle():
     height(int): rectangle height
     '''
 
-    def __init___(self, width=0, height=0):
+    def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
