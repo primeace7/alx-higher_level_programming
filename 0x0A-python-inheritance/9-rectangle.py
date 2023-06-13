@@ -6,6 +6,7 @@ implement a Rectangle class from BaseGeometry class
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeometry):
     '''
     define a Rectangle shape object
@@ -24,7 +25,6 @@ class Rectangle(BaseGeometry):
         self.__height = height
         self.integer_validator('width', self.__width)
         self.integer_validator('height', self.__height)
-
 
     def area(self):
         return self.__width * self.__height
