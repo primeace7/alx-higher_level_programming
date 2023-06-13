@@ -1,0 +1,31 @@
+'''
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+>>> bg.integer_validator('sample', 88)
+>>> bg.integer_validator('sample', 'value')
+Traceback (most recent call last):
+TypeError: sample must be an integer
+
+>>> bg.integer_validator('sample', 4.5)
+Traceback (most recent call last):
+TypeError: sample must be an integer
+
+>>> bg.integer_validator('sample', [])
+Traceback (most recent call last):
+TypeError: sample must be an integer
+
+>>> bg.integer_validator('sample', None)
+Traceback (most recent call last):
+TypeError: sample must be an integer
+
+>>> bg.integer_validator('sample', -6)
+Traceback (most recent call last):
+ValueError: sample must be greater than 0
+
+>>> bg.integer_validator('sample', 0)
+Traceback (most recent call last):
+ValueError: sample must be greater than 0
+
+'''
