@@ -4,6 +4,7 @@
 define a function that returns all the names (functions, variables, attributes)
 defined in a particular object'''
 
+
 def lookup(obj):
     '''
     return list of names defined in an object
