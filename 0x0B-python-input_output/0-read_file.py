@@ -13,4 +13,5 @@ def read_file(filename=""):
     filename(string): the pathname(or filename) of the file to be opened
     '''
     with open(filename, mode='r', encoding='UTF8') as text:
-        print(text.read())
+        for line in text:
+            print(line)
