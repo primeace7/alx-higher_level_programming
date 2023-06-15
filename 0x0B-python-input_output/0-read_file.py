@@ -17,4 +17,3 @@ def read_file(filename=""):
         while line:
             print(line)
             line = text.readline()
-read_file('README.md')

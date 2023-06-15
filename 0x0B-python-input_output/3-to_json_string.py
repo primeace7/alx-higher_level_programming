@@ -5,6 +5,7 @@ Define a function to return a string in JSON
 '''
 import json
 
+
 def to_json_string(my_obj):
     '''
     serialize a text as JSON
