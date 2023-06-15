@@ -13,5 +13,8 @@ def read_file(filename=""):
     filename(string): the pathname(or filename) of the file to be opened
     '''
     with open(filename, mode='r', encoding='UTF8') as text:
-        for line in text:
+        line = text.readline()
+        while line:
             print(line)
+            line = text.readline()
+read_file('README.md')
