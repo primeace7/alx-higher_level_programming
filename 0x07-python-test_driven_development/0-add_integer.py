@@ -27,6 +27,10 @@ def add_integer(a, b=98):
         raise TypeError('a must be an integer')
     elif b + 1 == b:
         raise TypeError('b must be an integer')
+    if a == float('inf'):
+        return a
+    if b == float('inf'):
+        return b
 
     a = int(a)
     b = int(b)
