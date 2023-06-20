@@ -35,6 +35,7 @@ class Square(Rectangle):
     def size(self, value):
         '''
         setter doc is in getter method
+            all args are defined in the getter
         '''
         self.width = value
         self.height = value
@@ -42,6 +43,8 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         '''
         update the attribute values of a square instance
+            The values for the size, x, y, and id attributes are set
+            with the update method dependiing on the values passed to it
         '''
         if len(args) != 0:
             for i in range(len(args)):
