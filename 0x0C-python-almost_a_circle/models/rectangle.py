@@ -159,6 +159,7 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         '''
         update the attributes of a Rectangle instance
+        The corresponding attributes are assigned from args or kwargs
         '''
         if len(args) != 0:
             for i in range(len(args)):
