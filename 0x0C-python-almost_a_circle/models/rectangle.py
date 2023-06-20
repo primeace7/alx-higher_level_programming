@@ -213,8 +213,7 @@ class Rectangle(Base):
         Returns:
         (dict): a dictionary equivalent of the Rectangle instance
         '''
-        (dict): a dictionary equivalent containing all the instance details
         items = {'id': self.id, 'width': self.__width}
         items2 = {'height': self.__height, 'x': self.__x, 'y': self.__y}
-        items |= items2
+        items.update(items2)
         return items
