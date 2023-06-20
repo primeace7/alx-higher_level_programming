@@ -2,6 +2,7 @@
 
 '''
 Define a square shape implementation
+    The square class inherits from the Rectangle class
 '''
 
 from .rectangle import Rectangle
