@@ -33,6 +33,9 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
+        '''
+        setter doc is in getter method
+        '''
         self.width = value
         self.height = value
 

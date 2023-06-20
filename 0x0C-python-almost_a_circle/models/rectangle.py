@@ -25,6 +25,9 @@ class Rectangle(Base):
     '''
 
     def __init__(self, width, height, x=0, y=0, id=None):
+        '''
+        init doc is above
+        '''
         super().__init__(id)
         self.width = width
         self.height = height
@@ -47,6 +50,9 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, num):
+        '''
+        setter doc is in getter method
+        '''
         if not isinstance(num, int):
             raise TypeError('width must be an integer')
         if num <= 0:
@@ -92,6 +98,9 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, val):
+        '''
+        setter doc is in getter method
+        '''
         if not isinstance(val, int):
             raise TypeError('x must be an integer')
         elif val < 0:
@@ -115,6 +124,9 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, val):
+        '''
+        setter doc is in getter method
+        '''
         if not isinstance(val, int):
             raise TypeError('y must be an integer')
         elif val < 0:
