@@ -47,9 +47,10 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         '''
-        update the attribute values of a square instance
-            The values for the size, x, y, and id attributes are set
-            with the update method dependiing on the values passed to it
+        update the attributes of a Rectangle instance
+            The corresponding attributes are assigned from args or kwargs
+            The id, width, height, x, and y attributes can all be updated
+            depending on the values passed to the function
         '''
         if len(args) != 0:
             for i in range(len(args)):

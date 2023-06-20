@@ -155,6 +155,8 @@ class Rectangle(Base):
     def display(self):
         '''
         display the rectangle by printing #s
+            The display takes into account the values of x and y
+            to display the correct coordinates
         '''
         for i in range(self.__y):
             print()
