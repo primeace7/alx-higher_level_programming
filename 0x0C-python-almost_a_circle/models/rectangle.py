@@ -27,6 +27,7 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         '''
         init doc is above
+        all arg descriptions are in the class docstring
         '''
         super().__init__(id)
         self.width = width
@@ -52,6 +53,7 @@ class Rectangle(Base):
     def width(self, num):
         '''
         setter doc is in getter method
+        all arg descriptions are in the getter
         '''
         if not isinstance(num, int):
             raise TypeError('width must be an integer')
@@ -76,6 +78,10 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, val):
+        '''
+        setter doc is in getter method
+        all arg descriptions are in the getter
+        '''
         if not isinstance(val, int):
             raise TypeError('height must be an integer')
         elif val <= 0:
@@ -100,6 +106,7 @@ class Rectangle(Base):
     def x(self, val):
         '''
         setter doc is in getter method
+        all arg descriptions are in the getter
         '''
         if not isinstance(val, int):
             raise TypeError('x must be an integer')
@@ -126,6 +133,7 @@ class Rectangle(Base):
     def y(self, val):
         '''
         setter doc is in getter method
+        all arg descriptions are in the getter
         '''
         if not isinstance(val, int):
             raise TypeError('y must be an integer')
