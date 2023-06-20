@@ -28,6 +28,15 @@ class Base():
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        '''
+        Convert a list of dicitonaries to JSON
+
+        Args:
+        list_dictionaries(list): list of dicionaries to convert to json string
+
+        Returns:
+        (str): the json-string-equivalent of @list_dictionaries
+        '''
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return '[]'
         else:
@@ -35,7 +44,14 @@ class Base():
 
     @classmethod
     def save_to_file(cls, list_objs):
-        with open(f'{cls.__name__}.json', mode='a', encoding='UTF8') as json_file:
+        '''
+        write a list of object dictionaries to a json file
+
+        Args:
+        list_objs(list): a list of objects, each object is represented as
+            a dictionary.
+        '''
+        with open(f'{cls.__name__}.json', mode='a', encoding='UTF8') as j_file:
             if list_objs is None:
                 json_string = cls.to_json_string([])
             else:
@@ -44,10 +60,19 @@ class Base():
                     list_of_dicts.append(obj.to_dictionary())
                 json_string = cls.to_json_string(list_of_dicts)
 
-            json_file.write(json_string)
+            j_file.write(json_string)
 
     @staticmethod
     def from_json_string(json_string):
+        '''
+        deserialize a json string to its equivalent python object
+
+        Args:
+        json_string(str): a json string to be deserialized
+
+        Returns:
+        (obj): the python equivalent of json_string
+        '''
         if json_string is None or len(json_string) == 0:
             return []
         else:
@@ -55,6 +80,16 @@ class Base():
 
     @classmethod
     def create(cls, **dictionary):
+        '''
+        create a class instance from an object dictionary
+
+        Args:
+        dictionary(:obj: dict): a class instance represented as a dictionary
+
+        Returns:
+        (:obj:): an instance of the calling class, cls, created from the
+            contents of the input dictionary
+        '''
         kwargs = dictionary
 
         if cls.__name__ == 'Rectangle':
@@ -67,10 +102,18 @@ class Base():
 
     @classmethod
     def load_from_file(cls):
+        '''
+        create a list of class instances from a json file
+
+        Returns:
+        (list): a list of instances of the calling class created from a
+            json string with the name <cls>.json
+        '''
         instances_list = []
 
         try:
-            with open(f'{cls.__name__}.json', mode='r', encoding='UTF8') as json_file:
+            with open(f'{cls.__name__}.json', mode='r', encoding='UTF8') as\
+                 json_file:
                 instance_dict_list = (json_file.read()).replace('\n', '')
                 instance_dict_list = cls.from_json_string(instance_dict_list)
                 print(instance_dict_list)

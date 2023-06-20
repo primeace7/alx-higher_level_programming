@@ -33,6 +33,16 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        '''
+        getter for the width attribute of Rectangle instance
+
+        Args(for setter):
+        num(int): the value to set the Rectangle instance's width to
+
+        Raises(for setter):
+        TypeError: num is not an int type
+        ValueError: num <= 0
+        '''
         return self.__width
 
     @width.setter
@@ -46,6 +56,16 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        '''
+        getter for the height attribute of Rectangle instance
+
+        Args(for setter):
+        val(int): the value to set the Rectangle instance's height to
+
+        Raises(for setter):
+        TypeError: val is not an int type
+        ValueError: val <= 0
+        '''
         return self.__height
 
     @height.setter
@@ -58,6 +78,16 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        '''
+        getter for the x coordinate of Rectangle instance
+
+        Args(for setter):
+        val(int): the value to set the Rectangle instance's x coordiante to
+
+        Raises(for setter):
+        TypeError: val is not an int type
+        ValueError: val < 0
+        '''
         return self.__x
 
     @x.setter
@@ -71,6 +101,16 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        '''
+        getter for the y coordinate of Rectangle instance
+
+        Args(for setter):
+        val(int): the value to set the Rectangle instance's y coordiante to
+
+        Raises(for setter):
+        TypeError: val is not an int type
+        ValueError: val < 0
+        '''
         return self.__y
 
     @y.setter
@@ -105,6 +145,9 @@ class Rectangle(Base):
             print()
 
     def update(self, *args, **kwargs):
+        '''
+        update the attributes of a Rectangle instance
+        '''
         if len(args) != 0:
             for i in range(len(args)):
                 if i == 0:
@@ -113,9 +156,9 @@ class Rectangle(Base):
                     self.__width = args[i]
                 elif i == 2:
                     self.__height = args[i]
-                elif i ==3:
+                elif i == 3:
                     self.__x = args[i]
-                elif i ==4:
+                elif i == 4:
                     self.__y = args[i]
                 else:
                     break
@@ -136,9 +179,18 @@ class Rectangle(Base):
                     break
 
     def __str__(self):
-        return f'[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}'
+        f1 = f'[Rectangle] ({self.id}) {self.__x}/{self.__y}'
+        return f'{f1} - {self.__width}/{self.__height}'
 
     def to_dictionary(self):
-        items = {'id': self.id, 'width': self.__width, 'height': self.__height,\
-                 'x': self.__x, 'y': self.__y}
+        '''
+        Convert a Rectangle instance to dictionary equivalent
+
+        Returns:
+        (dict): a dictionary equivalent of the Rectangle instance
+        '''
+        (dict): a dictionary equivalent containing all the instance details
+        items = {'id': self.id, 'width': self.__width}
+        items2 = {'height': self.__height, 'x': self.__x, 'y': self.__y}
+        items |= items2
         return items
