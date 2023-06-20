@@ -2,6 +2,7 @@
 
 '''
 Define a class that implements a rectangle
+The class inherits from the Base plane shape class
 '''
 
 from .base import Base
@@ -167,7 +168,9 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         '''
         update the attributes of a Rectangle instance
-        The corresponding attributes are assigned from args or kwargs
+            The corresponding attributes are assigned from args or kwargs
+            The id, width, height, x, and y attributes can all be updated
+            depending on the values passed to the function
         '''
         if len(args) != 0:
             for i in range(len(args)):
