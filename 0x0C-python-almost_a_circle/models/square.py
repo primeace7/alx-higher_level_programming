@@ -9,11 +9,26 @@ from .rectangle import Rectangle
 
 
 class Square(Rectangle):
+    '''
+    Implement a square class the derives from the rectangle class
+
+    Args:
+    size(int): this is the lenght of the square. it's equivalent to
+        the widht or height of the rectangle class. In fact, the size
+        is set to the width attribute of the square since it derives from
+        the rectangle class.
+    x(int): the x coordinate of the rectangle in a cartesian plane
+    y(int): the y coordinate of the rectangle in a cartesian plane
+    id(int): the id number of the square
+
+    Attributes:
+    size(int): the dimension of the square
+    x(int): the x coordinate of the square
+    y(int): the y coordinate of the square
+    id(int): the id number of the square
+    '''
+
     def __init__(self, size, x=0, y=0, id=None):
-        '''
-        init doc is above
-        all arg descriptions are in the class docstring
-        '''
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
