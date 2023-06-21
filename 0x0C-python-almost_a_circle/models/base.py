@@ -90,14 +90,13 @@ class Base():
         (:obj:): an instance of the calling class, cls, created from the
             contents of the input dictionary
         '''
-        kwargs = dictionary
 
         if cls.__name__ == 'Rectangle':
-            dummy_instance = cls(1, 1, 1, 1, 1)
-        elif cls.__name__ == 'Square':
             dummy_instance = cls(1, 1, 1, 1)
+        elif cls.__name__ == 'Square':
+            dummy_instance = cls(1, 1, 1)
 
-        dummy_instance.update(**kwargs)
+        dummy_instance.update(**dictionary)
         return dummy_instance
 
     @classmethod
