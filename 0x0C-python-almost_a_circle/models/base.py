@@ -113,12 +113,9 @@ class Base():
         try:
             with open(f'{cls.__name__}.json', mode='r', encoding='UTF8') as\
                  json_file:
-                instance_dict_list = (json_file.read()).replace('\n', '')
-                instance_dict_list = cls.from_json_string(instance_dict_list)
-                print(instance_dict_list)
-                for instance in instance_dict_list:
-                    instances_list.append(cls.create(**instance))
-            return instances_list
+                obj_dict_list = (json_file.read()).replace('\n', '')
+                obj_dict_list = cls.from_json_string(obj_dict_list)
+                return [cls.create(**instance) for instance in obj_dict_list]
         except FileNotFoundError:
             return instances_list
         except Exception:
