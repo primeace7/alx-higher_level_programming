@@ -6,6 +6,10 @@ from models.square import Square
 
 if __name__ == "__main__":
 
+    r1 = Rectangle.create(**{ 'width': 2, 'height': 3 })
+    print(r1)
+
+'''
     r1 = Rectangle(10, 7, 2, 8)
     r2 = Rectangle(2, 4)
     list_rectangles_input = [r1, r2]
@@ -40,3 +44,4 @@ if __name__ == "__main__":
 
     for square in list_squares_output:
         print("[{}] {}".format(id(square), square))
+'''
