@@ -51,7 +51,7 @@ class Base():
         list_objs(list): a list of objects, each object is represented as
             a dictionary.
         '''
-        with open(f'{cls.__name__}.json', mode='a', encoding='UTF8') as j_file:
+        with open(f'{cls.__name__}.json', mode='w', encoding='UTF8') as j_file:
             if list_objs is None:
                 json_string = cls.to_json_string([])
             else:
