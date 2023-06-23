@@ -4,6 +4,7 @@
 Definition of some plane shapes
 '''
 import json
+import csv
 
 
 class Base():
@@ -72,6 +73,7 @@ class Base():
 
         Returns:
         (obj): the python equivalent of json_string
+            or an empty list if json_string is empty
         '''
         if json_string is None or len(json_string) == 0:
             return []
@@ -108,7 +110,6 @@ class Base():
         (list): a list of instances of the calling class created from a
             json string with the name <cls>.json
         '''
-        instances_list = []
 
         try:
             with open(f'{cls.__name__}.json', mode='r', encoding='UTF8') as\
@@ -117,6 +118,41 @@ class Base():
                 obj_dict_list = cls.from_json_string(obj_dict_list)
                 return [cls.create(**instance) for instance in obj_dict_list]
         except FileNotFoundError:
-            return instances_list
+            print(f'File {cls.__name__}.json not found.')
+            return []
+        except Exception:
+            raise
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+
+        if cls.__name__ == 'Rectangle':
+            fieldnames = ['id', 'width', 'height', 'x', 'y']
+        elif cls.__name__ == 'Square':
+            fieldnames = ['id', 'size', 'x', 'y']
+
+        with open(f'{cls.__name__}.csv', 'w', newline='') as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+            if list_objs is not None:
+                writer.writeheader()
+                for instance in list_objs:
+                    writer.writerow(instance.to_dictionary())
+            else:
+                writer.writerow(dict())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        try:
+            with open(f'{cls.__name__}.csv', 'r', newline='') as csfile:
+                reader = csv.DictReader(csfile)
+                return_list = []
+                for instance in reader:
+                    for key, val in instance.items():
+                        instance[key] = int(val)
+                    return_list.append(cls.create(**instance))
+                return return_list
+        except FileNotFoundError:
+            print(f'File {cls.__name__}.csv not found.')
+            return []
         except Exception:
             raise
