@@ -1,3 +1,2 @@
--- list all the tables of a database
+-- list the tables in a database
 SHOW TABLES
-FROM
