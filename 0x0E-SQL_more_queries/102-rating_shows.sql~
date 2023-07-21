@@ -1,6 +1,0 @@
--- lists all shows from hbtn_0d_tvshows_rate by their rating
-SELECT DISTINCT tv_shows.title, tv_show_ratings.rate
-FROM tv_shows
-JOIN tv_show_ratings
-ON tv_show_ratings.show_id = tv_shows.id
-ORDER BY 2 DESC;
