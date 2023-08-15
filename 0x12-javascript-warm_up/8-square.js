@@ -8,7 +8,7 @@ try {
     BigInt(input);
     for (let i = 0; i < input; i++) {
       for (let j = 0; j < input; j++) {
-        process.stdout.write('x');
+        process.stdout.write('X');
       }
       process.stdout.write('\n');
     }
