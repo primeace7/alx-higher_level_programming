@@ -1,7 +1,8 @@
 #!/usr/bin/node
-
-if (typeof BigInt(process.argv[2]) === 'bigint') {
-  console.log(`My number: ${process.argv[2]}`);
-} else {
+const num = process.argv[2];
+if (typeof num === 'undefined') {
   console.log('Not a number');
+} else {
+  BigInt(num);
+  console.log(`My number: ${num}`);
 }
