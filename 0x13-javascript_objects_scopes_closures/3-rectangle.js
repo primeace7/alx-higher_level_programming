@@ -9,5 +9,15 @@ class Rectangle {
       this.height = h;
     }
   }
+    print(){
+	if (this) {
+	for (let i = 0; i < this.height; i++) {
+	    for (let i = 0; i < this.width; i++) {
+		process.stdout.write('X');
+	    }
+	    process.stdout.write('\n');
+	}
+	}
+    }
 }
 module.exports = Rectangle;
