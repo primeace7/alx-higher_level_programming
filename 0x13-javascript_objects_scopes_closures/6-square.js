@@ -11,7 +11,7 @@ class Square extends Square1 {
   charPrint (charUse) {
     if (this) {
       if (charUse) {
-        this.printChar = 'C';
+        this.printChar = charUse;
       }
     }
     for (let i = 0; i < this.height; i++) {
