@@ -3,13 +3,18 @@
 a script that lists all states from the database hbtn_0e_0_usa
 Results must be sorted in ascending order by states.id
 '''
+import MySQLdb as DB
+import sys
 
 if __name__ == '__main__':
-    import MySQLdb as DB
-    db_connect = DB.connect(host='localhost', port=3306, user='root',
-                            passwd='root', db='hbtn_0e_0_usa', charset='utf8')
+    config = {'user':sys.argv[1], 'passwd':sys.argv[2], 'db':sys.argv[3],
+              'host':"localhost", 'port':3306}
+
+    db_connect = DB.connect(**config)
     cursor = db_connect.cursor()
-    cursor.execute("""SELECT * FROM states ORDER BY `id` ASC""")
+
+    query = 'SELECT * FROM states ORDER BY `id` ASC'
+    cursor.execute(query)
 
     rows = cursor.fetchall()
 
