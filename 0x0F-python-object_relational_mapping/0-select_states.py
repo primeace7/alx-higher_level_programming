@@ -9,7 +9,7 @@ if __name__ == '__main__':
     db_connect = DB.connect(host='localhost', port=3306, user='root',
                             passwd='root', db='hbtn_0e_0_usa', charset='utf8')
     cursor = db_connect.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
+    cursor.execute("""SELECT * FROM states ORDER BY states.id ASC""")
 
     rows = cursor.fetchall()
 

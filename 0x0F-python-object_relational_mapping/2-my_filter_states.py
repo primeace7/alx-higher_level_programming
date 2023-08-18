@@ -11,8 +11,8 @@ import sys
 if __name__ == '__main__':
     db_connect = DB.connect(user='root', passwd='root', db='hbtn_0e_0_usa')
     cursor = db_connect.cursor()
-    cursor.execute("SELECT * FROM states WHERE name=%s ORDER\
-    BY states.id ASC", (sys.argv[-1],))
+    cursor.execute("""SELECT * FROM states WHERE name=%s ORDER\
+    BY states.id ASC""", (sys.argv[-1],))
 
     rows = cursor.fetchall()
 
