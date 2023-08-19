@@ -14,8 +14,10 @@ if __name__ == '__main__':
     db_connect = DB.connect(**config)
     cursor = db_connect.cursor()
 
-    query = '''SELECT * FROM states WHERE name='{}' ORDER\
-    BY states.id ASC'''.format(sys.argv[-1])
+    query = '''SELECT *
+    FROM states
+    WHERE name='{}'
+    ORDER BY states.id ASC;'''.format(str(sys.argv[-1]))
 
     cursor.execute(query)
 
@@ -24,7 +26,7 @@ if __name__ == '__main__':
     for row in rows:
         print(row)
 
-    if not len(row):
+    if not len(rows):
         print()
 
     cursor.close()

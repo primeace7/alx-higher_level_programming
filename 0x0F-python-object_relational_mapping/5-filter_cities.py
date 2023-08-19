@@ -33,7 +33,7 @@ if __name__ == '__main__':
             ending = '\n'
         else:
             ending = ', '
-        print(row, end=ending)
+        print(row[0], end=ending)
     if not len(rows):
         print()
 

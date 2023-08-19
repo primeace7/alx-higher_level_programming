@@ -14,8 +14,10 @@ if __name__ == '__main__':
     db_connect = DB.connect(**config)
     cursor = db_connect.cursor()
 
-    query = """SELECT * FROM states WHERE states.name\
-     LIKE "N%" ORDER BY states.id ASC;"""
+    query = """SELECT *
+    FROM states
+    WHERE states.name LIKE 'N%'
+    ORDER BY states.id ASC;"""
     cursor.execute(query)
 
     rows = cursor.fetchall()
