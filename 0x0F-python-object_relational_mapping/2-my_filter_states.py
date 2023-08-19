@@ -14,11 +14,10 @@ if __name__ == '__main__':
     db_connect = DB.connect(**config)
     cursor = db_connect.cursor()
 
-    query = '''SELECT * FROM states WHERE name=%s ORDER\
-    BY states.id ASC'''
-    cmdline_arg = sys.argv[-1]
+    query = '''SELECT * FROM states WHERE name='{}' ORDER\
+    BY states.id ASC'''.format(sys.argv[-1])
 
-    cursor.execute(query, (cmdline_arg,))
+    cursor.execute(query)
 
     rows = cursor.fetchall()
 

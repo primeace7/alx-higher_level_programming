@@ -14,17 +14,25 @@ if __name__ == '__main__':
     db_connect = DB.connect(**config)
     cursor = db_connect.cursor()
 
-    query = '''SELECT cities.id, cities.name, states.name
+    query = '''SELECT cities.name
     FROM cities
-    JOIN states ON cities.state_id = states.id
-    ORDER BY cities.id ASC'''
+    WHERE state_id =
+    (SELECT states.id
+    FROM states
+    WHERE states.name = '{}'
+    LIMIT 1)
+    ORDER BY cities.id ASC;'''.format(sys.argv[-1])
 
     cursor.execute(query)
 
     rows = cursor.fetchall()
 
     for row in rows:
-        print(row)
+        if row == rows[-1]:
+            ending = '\n'
+        else:
+            ending = ', '
+        print(row[0], end=ending)
 
     cursor.close()
     db_connect.close()
