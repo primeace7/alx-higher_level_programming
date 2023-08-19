@@ -33,7 +33,9 @@ if __name__ == '__main__':
             ending = '\n'
         else:
             ending = ', '
-        print(row[0], end=ending)
+        print(row, end=ending)
+    if not len(rows):
+        print()
 
     cursor.close()
     db_connect.close()

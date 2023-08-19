@@ -24,5 +24,8 @@ if __name__ == '__main__':
     for row in rows:
         print(row)
 
+    if not len(row):
+        print()
+
     cursor.close()
     db_connect.close()
