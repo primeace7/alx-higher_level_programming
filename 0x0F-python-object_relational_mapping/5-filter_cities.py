@@ -14,16 +14,17 @@ if __name__ == '__main__':
     db_connect = DB.connect(**config)
     cursor = db_connect.cursor()
 
+    state = sys.argv[-1]
     query = '''SELECT cities.name
     FROM cities
     WHERE state_id =
     (SELECT states.id
     FROM states
-    WHERE states.name = '{}'
+    WHERE states.name = %s
     LIMIT 1)
-    ORDER BY cities.id ASC;'''.format(sys.argv[-1])
+    ORDER BY cities.id ASC;'''
 
-    cursor.execute(query)
+    cursor.execute(query, (state,))
 
     rows = cursor.fetchall()
 
