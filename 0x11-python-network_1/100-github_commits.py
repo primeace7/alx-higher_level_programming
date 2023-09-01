@@ -29,7 +29,7 @@ if __name__ == '__main__':
         dates.append(date)
         commits[date] = sha + ': ' + author
 
-    dates.sort()
+    dates = sorted(dates)
 
     for i in range(10):
         print(commits[dates[i]])
