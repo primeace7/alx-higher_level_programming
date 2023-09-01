@@ -25,7 +25,7 @@ if __name__ == '__main__':
         if len(res_json) == 0:
             print('No result')
         else:
-            print('[' + str(res_json['id']) + ']', res_json['name'])
+            print('[' + str(res_json.get('id')) + ']', res_json.get('name'))
 
     except requests.exceptions.JSONDecodeError as e:
         print('Not a valid JSON')
