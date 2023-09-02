@@ -31,5 +31,10 @@ if __name__ == '__main__':
 
     dates = sorted(dates, reverse=True)
 
-    for i in range(10):
+    if len(dates) >= 10:
+        limit = 10
+    else:
+        limit = len(dates)
+
+    for i in range(limit):
         print(commits[dates[i]])
