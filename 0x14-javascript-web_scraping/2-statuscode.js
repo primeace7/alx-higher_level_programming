@@ -10,7 +10,7 @@ const useURL = process.argv[2];
 try {
   request
     .get(useURL)
-    .on('response', response => console.log(response.statusCode));
+    .on('response', response => console.log('code:', response.statusCode));
 } catch (error) {
   console.error(error);
 }
